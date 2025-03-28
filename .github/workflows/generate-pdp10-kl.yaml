@@ -1,5 +1,5 @@
-name: ITS klh10
-run-name: Build ITS under klh10
+name: ITS pdp10-kl
+run-name: Build ITS under pdp10-kl
 on: [push]
 jobs:
   build-and-publish:
@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - run: docker build . --file Dockerfile-klh10 --tag ghcr.io/mfgamallo/its-klh10:0.0.3
-      - run: docker push ghcr.io/mfgamallo/its-klh10:0.0.3
+      - run: docker build . --file Dockerfile-pdp10-kl --tag ghcr.io/mfgamallo/its-pdp10-kl:0.0.1
+      - run: docker push ghcr.io/mfgamallo/its-pdp10-kl:0.0.1
