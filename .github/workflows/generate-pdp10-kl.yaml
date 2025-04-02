@@ -1,0 +1,14 @@
+name: ITS pdp10-kl
+run-name: Build ITS under pdp10-kl
+on: [push]
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - run: docker build . --file Dockerfile-pdp10-kl --tag ghcr.io/mfgamallo/its-pdp10-kl:0.0.2
+      - run: docker push ghcr.io/mfgamallo/its-pdp10-kl:0.0.2
