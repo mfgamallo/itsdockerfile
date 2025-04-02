@@ -10,5 +10,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      - run: docker build . --file Dockerfile-pdp10-ka --tag ghcr.io/mfgamallo/its-pdp10-ka:0.0.1
+      - run: docker build . --file Dockerfile-pdp10-ka --tag ghcr.io/mfgamallo/its-pdp10-ka:0.0.2
       - run: docker push ghcr.io/mfgamallo/its-pdp10-ka:0.0.2
